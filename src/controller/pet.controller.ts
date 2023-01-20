@@ -10,3 +10,4 @@ export const getAllPets = async (req: Request, res: Response) => {
     res.status(400).send(error);
   }
 };
+//modificado

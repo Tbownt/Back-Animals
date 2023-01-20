@@ -2,7 +2,7 @@
 import express from "express";
 import morgan from "morgan";
 // import cors from "cors";
-import petsRouter from "./routes/pets.router";
+import petsRouter from "./pets.router";
 
 const app = express();
 
@@ -14,3 +14,4 @@ app.use(express.json());
 app.use("/pets", petsRouter);
 
 export default app;
+//modificado
