@@ -1,8 +1,6 @@
-// import { Router } from "express";
 import express from "express";
-import morgan from "morgan";
-// import cors from "cors";
 import petsRouter from "./pets.router";
+import morgan from "morgan";
 
 const app = express();
 
@@ -11,7 +9,7 @@ const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
 
+//Routes
 app.use("/pets", petsRouter);
 
 export default app;
-//modificado

@@ -1,7 +1,7 @@
 import express from "express";
 import "reflect-metadata";
 import database from "./config/database";
-import app from "./routes/app";
+import app from "./routes/index";
 const PORT = 3001;
 
 database
@@ -14,5 +14,3 @@ database
 app.listen(PORT, () => {
   console.log("Running on port " + PORT);
 });
-
-//modificado
