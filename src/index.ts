@@ -1,17 +1,16 @@
-import express  from "express";
+import express from "express";
 import "reflect-metadata";
 import database from "./config/database";
-
-const app= express();
+import app from "./app";
 const PORT = 3001;
 
+database
+  .initialize()
+  .then(() => {
+    console.log("DB connect");
+  })
+  .catch(console.error);
 
-database.initialize() 
-.then(() => {console.log("DB connect")})
-.catch(console.error)
-
-
-
-app.listen(PORT,()=>{
-    console.log("Running on port " + PORT);
-})
+app.listen(PORT, () => {
+  console.log("Running on port " + PORT);
+});

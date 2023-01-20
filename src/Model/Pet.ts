@@ -4,6 +4,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  BaseEntity,
 } from "typeorm";
 
 export type Size = "small" | "medium" | "big";
@@ -17,7 +18,7 @@ export type Sex = "male" | "female";
 export type Status = "lost" | "found" | "adopted";
 
 @Entity()
-export class Pet {
+export class Pet extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: string; //UUID
   @Column({
@@ -49,7 +50,7 @@ export class Pet {
 
   @Column({
     type: "enum",
-    enum: ["male", "female"]
+    enum: ["male", "female"],
   })
   sex!: Sex;
 
@@ -63,4 +64,3 @@ export class Pet {
   @UpdateDateColumn()
   updatedAt!: Date;
 }
-  
