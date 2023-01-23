@@ -19,8 +19,10 @@ export type Status = "lost" | "found" | "adopted";
 
 @Entity()
 export class Pet extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  id!: string; //UUID
+
+  @PrimaryGeneratedColumn("uuid")
+  id!: string
+  
   @Column({
     type: "enum",
     enum: ["small", "medium", "big"],
