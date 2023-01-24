@@ -4,8 +4,11 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  BaseEntity,
+  BaseEntity, // para poder hacer el create, findByOne, etc
+  ManyToOne,
 } from "typeorm";
+
+import { User } from "./User";
 
 export type Size = "pequeño" | "mediano" | "grande";
 
@@ -21,8 +24,8 @@ export type Status = "perdido" | "encontrado" | "adoptado";
 export class Pet extends BaseEntity {
   //uuid funcionando
   @PrimaryGeneratedColumn("uuid")
-  id!: string
-  
+  id!: string;
+
   @Column({
     type: "enum",
     enum: ["pequeño", "mediano", "grande"],
@@ -65,4 +68,7 @@ export class Pet extends BaseEntity {
   createdAt!: Date;
   @UpdateDateColumn()
   updatedAt!: Date;
+
+  @ManyToOne(() => User, (user) => user.pet)
+  user!: User;
 }
