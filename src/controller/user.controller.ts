@@ -1,6 +1,26 @@
 import { Request, Response, NextFunction } from "express";
 import { User } from "../Model/User";
-import { DataSource } from "typeorm";
+
+export const createUser = async (req: Request, res: Response) => {
+  const { name, surname, email, username, phone, role } = req.body;
+  try {
+    const newUser = new User();
+    newUser.name = name;
+    newUser.surname = surname;
+    newUser.email = email;
+    newUser.username = username;
+    newUser.phone = phone;
+    newUser.role = role;
+
+    await newUser.save();
+    // console.log(newUser);
+
+    res.status(200).send(newUser);
+  } catch (error) {
+    if (error instanceof Error)
+      return res.status(400).json({ message: error.message });
+  }
+};
 
 export const getAllUsers = async (req: Request, res: Response) => {
   try {

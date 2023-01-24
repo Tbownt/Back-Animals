@@ -5,13 +5,16 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   BaseEntity,
+  OneToMany,
 } from "typeorm";
+
+import { Pet } from "./Pet";
 
 export type Role = "admin" | "user";
 
 @Entity()
 export class User extends BaseEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("uuid")
   id!: string;
   @Column()
   name!: string;
@@ -21,8 +24,8 @@ export class User extends BaseEntity {
   email!: string;
   @Column()
   username!: string;
-  @Column()
-  phone!: number;
+  @Column({ type: "bigint" })
+  phone!: string;
   @Column({
     type: "enum",
     enum: ["admin", "user"],
@@ -32,4 +35,7 @@ export class User extends BaseEntity {
   createdAt!: Date;
   @UpdateDateColumn()
   updatedAt!: Date;
+
+  @OneToMany(() => Pet, (pet) => pet.user)
+  pet!: Pet[];
 }
