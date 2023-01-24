@@ -7,37 +7,37 @@ import {
   BaseEntity,
 } from "typeorm";
 
-export type Size = "small" | "medium" | "big";
+export type Size = "pequeño" | "mediano" | "grande";
 
-export type Specie = "dog" | "cat";
+export type Specie = "perro" | "gato";
 
-export type Age = "puppy" | "young" | "adult";
+export type Age = "cachorro" | "joven" | "adulto";
 
-export type Sex = "male" | "female";
+export type Sex = "macho" | "hembra";
 
-export type Status = "lost" | "found" | "adopted";
+export type Status = "perdido" | "encontrado" | "adoptado";
 
 @Entity()
 export class Pet extends BaseEntity {
-
+  //uuid funcionando
   @PrimaryGeneratedColumn("uuid")
   id!: string
   
   @Column({
     type: "enum",
-    enum: ["small", "medium", "big"],
+    enum: ["pequeño", "mediano", "grande"],
   })
   size!: Size;
 
   @Column({
     type: "enum",
-    enum: ["dog", "cat"],
+    enum: ["perro", "gato"],
   })
   species!: Specie;
 
   @Column({
     type: "enum",
-    enum: ["puppy", "young", "adult"],
+    enum: ["cachorro", "joven", "adulto"],
   })
   age!: Age;
 
@@ -52,13 +52,13 @@ export class Pet extends BaseEntity {
 
   @Column({
     type: "enum",
-    enum: ["male", "female"],
+    enum: ["macho", "hembra"],
   })
   sex!: Sex;
 
   @Column({
     type: "enum",
-    enum: ["lost", "found", "adopted"],
+    enum: ["perdido", "encontrado", "adoptado"],
   })
   status!: Status;
   @CreateDateColumn()
@@ -66,4 +66,3 @@ export class Pet extends BaseEntity {
   @UpdateDateColumn()
   updatedAt!: Date;
 }
-//modificado
