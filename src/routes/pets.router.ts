@@ -1,4 +1,5 @@
 import { Router } from "express";
+import validatorPostPet from "../middlewares/validators/pet.validator"
 import {
   getAllPets,
   getPetId,
@@ -11,7 +12,7 @@ const petsRouter = Router();
 
 petsRouter.get("/", getAllPets);
 petsRouter.get("/:id", getPetId);
-petsRouter.post("/", createPet);
+petsRouter.post("/", validatorPostPet, createPet);
 petsRouter.put("/:id", updatePet);
 petsRouter.delete("/:id", deletePet);
 
