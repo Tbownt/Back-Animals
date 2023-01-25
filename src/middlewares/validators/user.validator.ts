@@ -1,5 +1,5 @@
 import { check, validationResult } from "express-validator";
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 
 // checkear después imagen
 
@@ -14,11 +14,11 @@ export const userValidator = [
 
 	check("username").exists().notEmpty().isLength({ min: 5, max: 15 }).trim(),
 
-	(req: Request, res: Response) => {
+	(req: Request, res: Response, next: NextFunction) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
 			return res.status(400).json({ errors: errors.array() });
 		}
-		res.status(200).json({ msg: "Todo ok " });
+		return next();
 	},
 ];
