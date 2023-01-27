@@ -1,5 +1,4 @@
-import { Request, Response, NextFunction } from "express";
-import { Pet } from "../Model/Pet";
+import { Request, Response } from "express";
 import { User } from "../Model/User";
 
 export const createUser = async (req: Request, res: Response) => {
