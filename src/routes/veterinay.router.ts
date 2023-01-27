@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { veterinaryValidator } from "../middlewares/validators/veterinary.validator";
 import {
 	createVeterinary,
 	getAllVeterinary,
@@ -9,7 +10,7 @@ import {
 const veterinaryRouter = Router();
 
 veterinaryRouter.get("/", getAllVeterinary);
-veterinaryRouter.post("/", createVeterinary);
+veterinaryRouter.post("/", veterinaryValidator, createVeterinary);
 veterinaryRouter.get("/:id", getVeterinaryId);
 veterinaryRouter.put("/:id", updateVeterinary);
 
