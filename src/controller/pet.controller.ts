@@ -1,13 +1,14 @@
 import { Request, Response } from "express";
 import { Pet } from "../Model/Pet";
 import { User } from "../Model/User";
+import { NotFoundError, handleHttp } from "../utils/error.handler";
 
 export const getAllPets = async (req: Request, res: Response) => {
 	try {
 		const pets = await Pet.find();
 		res.status(200).send(pets);
 	} catch (error) {
-		res.status(400).send(error);
+		handleHttp(res, 'ERROR_GET_ALL_PETS')
 	}
 };
 
@@ -15,10 +16,10 @@ export const getPetId = async (req: Request, res: Response) => {
 	const { id } = req.params;
 	try {
 		const pet = await Pet.findOneBy({ id });
-		if (!pet) res.status(400).send({ msg: "Pet Id not found" });
+		if (!pet) throw new NotFoundError(`No pet found with ID: ${id}`);
 		else res.status(200).send(pet);
 	} catch (error) {
-		res.status(404).send({ msg: "Error getting data" });
+		handleHttp(res, 'ERROR_GET_PET')
 	}
 };
 
@@ -46,7 +47,7 @@ export const createPet = async (req: Request, res: Response) => {
 		return res.status(200).send(newPet);
 	} catch (error) {
 		if (error instanceof Error)
-			return res.status(400).json({ message: error.message });
+		handleHttp(res, 'ERROR_CREATE_PET')
 	}
 };
 
@@ -55,14 +56,12 @@ export const updatePet = async (req: Request, res: Response) => {
 
 	try {
 		const pet = await Pet.findOneBy({ id: id });
-		if (!pet) return res.status(404).json({ message: "Pet not found" });
+		if (!pet) throw new NotFoundError(`No pet found with ID: ${id}`);
 
 		await Pet.update({ id: id }, req.body);
 		return res.sendStatus(204);
 	} catch (error) {
-		if (error instanceof Error) {
-			return res.status(500).json({ message: error.message });
-		}
+		handleHttp(res, 'ERROR_UPDATE_PET')
 	}
 };
 
@@ -78,7 +77,7 @@ export const deletePet = async (req: Request, res: Response) => {
 		return res.sendStatus(204).json({ message: "Pet deleted" });
 	} catch (error) {
 		if (error instanceof Error) {
-			return res.status(500).json({ message: error.message });
+			handleHttp(res, 'ERROR_DELETE_PET')
 		}
 	}
 };

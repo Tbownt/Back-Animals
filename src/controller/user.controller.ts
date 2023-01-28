@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { Pet } from "../Model/Pet";
 import { User } from "../Model/User";
+import { handleHttp, NotFoundError } from "../utils/error.handler";
 
 export const createUser = async (req: Request, res: Response) => {
 	const { name, surname, email, username, phone, role } = req.body;
@@ -16,10 +17,10 @@ export const createUser = async (req: Request, res: Response) => {
 		await newUser.save();
 		// console.log(newUser);
 
-		res.status(200).send(newUser);
+		res.status(200)
+				.send(newUser);
 	} catch (error) {
-		if (error instanceof Error)
-			return res.status(400).json({ message: error.message });
+		handleHttp(res, 'ERROR_CREATE_USER')
 	}
 };
 
@@ -28,7 +29,7 @@ export const getAllUsers = async (req: Request, res: Response) => {
 		const users = await User.find();
 		res.status(200).send(users);
 	} catch (error) {
-		res.status(400).send(error);
+		handleHttp(res, 'ERROR_GET_USERS')
 	}
 };
 
@@ -40,10 +41,10 @@ export const getUserId = async (req: Request, res: Response) => {
 			relations: ["pet"],
 		});
 
-		if (!user) res.status(400).send({ msg: `User ${id} is not found` });
+		if (!user) throw new NotFoundError(`User ${id} is not found`);
 		else res.status(200).send(user);
 	} catch (error) {
-		res.status(404).send({ msg: "Error getting data" });
+		handleHttp(res, 'ERROR_GET_USER')
 	}
 };
 
@@ -52,10 +53,10 @@ export const updateUser = async (req: Request, res: Response) => {
 	const { name, surname, email, username, phone } = req.body;
 	try {
 		const user = await User.findOneBy({ id: id });
-		if (!user) return res.status(404).json({ msg: `User ${id} is not found` });
+		if (!user) throw new NotFoundError(`User ${id} is not found`);
 		await User.update({ id: id }, req.body);
 		res.status(200).send("User Updated");
 	} catch (error) {
-		res.status(404).send({ msg: "Error getting data" });
+		handleHttp(res, 'ERROR_UPDATE_USERS')
 	}
 };
