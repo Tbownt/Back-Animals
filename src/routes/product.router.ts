@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { validatorPostProduct } from "../middlewares/validators/product.validator";
 import {
 	createProduct,
 	getAllProducts,
@@ -9,7 +10,7 @@ import {
 const productRouter = Router();
 
 productRouter.get("/", getAllProducts);
-productRouter.post("/", createProduct);
+productRouter.post("/", validatorPostProduct, createProduct);
 productRouter.get("/:id", getProductId);
 productRouter.put("/:id", updateProduct);
 
