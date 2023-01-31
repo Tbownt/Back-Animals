@@ -4,7 +4,7 @@ import { Request, Response, NextFunction } from "express";
 // checkear después imagen
 
 export const validatorPostProduct = [
-	check("name").exists().notEmpty().isLength({ min: 3, max: 20 }),
+	check("name").exists().notEmpty().isLength({ min: 3, max: 50 }),
 
 	check("description").exists().notEmpty().isLength({ min: 8, max: 200 }),
 
