@@ -11,6 +11,7 @@ import {
 import { Pet } from "./Pet";
 
 export type Role = "admin" | "user";
+export type Status = "active" | "banned";
 
 @Entity()
 export class User extends BaseEntity {
@@ -31,6 +32,11 @@ export class User extends BaseEntity {
 		enum: ["admin", "user"],
 	})
 	role!: Role;
+	@Column({
+		type: "enum",
+		enum: ["active", "banned"],
+	})
+	status!: Status
 	@CreateDateColumn()
 	createdAt!: Date;
 	@UpdateDateColumn()
