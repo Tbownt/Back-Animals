@@ -1,14 +1,19 @@
 import { Request, Response } from "express";
 import { User } from "../Model/User";
 import { handleHttp, NotFoundError } from "../utils/error.handler";
+import { encrypt } from '../utils/bcrypt.handler';
+import { verified } from "../utils/bcrypt.handler";
 
 export const createUser = async (req: Request, res: Response) => {
-  const { name, surname, email, username, phone, role } = req.body;
+  const { name, surname, email, username, phone, role, password } = req.body;
   try {
+    const passwordHashed = await encrypt(password);
+
     const newUser = new User();
     newUser.name = name;
     newUser.surname = surname;
     newUser.email = email;
+    newUser.password = passwordHashed;
     newUser.username = username;
     newUser.phone = phone;
     newUser.role = role;
@@ -74,5 +79,41 @@ export const setStatusUserInDB = async (req: Request, res: Response) => {
 		}
 	} catch (error) {
 		console.log(error)//manejo este error de momento. Lu	
+	}
+};
+
+export const loginCtrl = async (req: Request, res: Response) => {
+  const {email, password} = req.body;
+  const response = await User.find({
+    select: [password],
+    where: [{email: email}]
+  });
+
+
+  const emailDb =response.map(e=> e.email);
+  const passwordDb = response.map(p=> p.password);
+
+  
+  for(let i=0; i< passwordDb.length; i++){
+    let resultPassword = await verified(password, passwordDb[i])
+    
+    if(emailDb[0] && resultPassword ) return res.send("Usuario correcto");
+    else res.json("usuario incorrecto")
+  };
+};
+
+export const deleteUser = async (req: Request, res: Response) => {
+	try {
+
+		const { id } = req.params;
+		
+		const userDeleted = await User.delete({id: id});
+		console.log(userDeleted);	
+
+		if(userDeleted.affected === 0) throw new NotFoundError(`User ${id} is not found`);
+		res.send(`User deleted`);
+		
+	} catch (error) {
+		handleHttp(res, 'ERROR_DELETED_USER')
 	}
 };
