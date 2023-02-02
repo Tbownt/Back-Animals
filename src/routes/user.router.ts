@@ -19,6 +19,6 @@ userRouter.put("/setStatusUser/:id", setStatusUserInDB);
 userRouter.post("/", userValidator, createUser);
 userRouter.delete("/:id", deleteUser);
 // http://localhost:3001/users/login
-userRouter.post("/", loginCtrl);
+userRouter.post("/login", loginCtrl);
 
 export default userRouter;
