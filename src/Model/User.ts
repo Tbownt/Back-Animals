@@ -6,11 +6,13 @@ import {
 	UpdateDateColumn,
 	BaseEntity,
 	OneToMany,
+	DeleteDateColumn,
 } from "typeorm";
 
 import { Pet } from "./Pet";
 
 export type Role = "admin" | "user";
+export type Status = "active" | "banned";
 
 @Entity()
 export class User extends BaseEntity {
@@ -23,6 +25,8 @@ export class User extends BaseEntity {
 	@Column()
 	email!: string;
 	@Column()
+	password!: string;
+	@Column()
 	username!: string;
 	@Column({ type: "bigint" })
 	phone!: string;
@@ -31,10 +35,17 @@ export class User extends BaseEntity {
 		enum: ["admin", "user"],
 	})
 	role!: Role;
+	@Column({
+		type: "enum",
+		enum: ["active", "banned"],
+	})
+	status!: Status;
 	@CreateDateColumn()
 	createdAt!: Date;
 	@UpdateDateColumn()
 	updatedAt!: Date;
+	@DeleteDateColumn()
+	deletedAt!: Date;
 
 	@OneToMany(() => Pet, (pet) => pet.user)
 	pet!: Pet[];
