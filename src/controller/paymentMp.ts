@@ -3,7 +3,8 @@ const mercadopago = require("mercadopago");
 
 export const paymentMp =(req: Request, res: Response)=>{
 
-const {mount} = req.body;
+const {unit_price, title} = req.body;
+
 // Crea un objeto de preferencia
 let preference = {
     //?url que retorna despues de una operación
@@ -13,8 +14,8 @@ let preference = {
     items: [
       {
         id:123,
-        title: "Mi producto",
-        unit_price: mount,
+        title: title,
+        unit_price: unit_price,
         currency_id: "ARS",
         quantity: 1,
       },

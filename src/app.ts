@@ -18,17 +18,12 @@ server.use(express.json());
 // router.options("cors", cors(options));
 
 
-
-
 // SDK de Mercado Pago
 const mercadopago = require("mercadopago");
 // Agrega credenciales
 mercadopago.configure({
   access_token: process.env.ACCES_TOKEN
 });
-
-
-
 
 
 server.use("/", router);
