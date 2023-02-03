@@ -21,23 +21,23 @@ const isValidUserName: CustomValidator = async (username) => {
 };
 
 export const userValidator = [
-	check("name").exists().notEmpty().isLength({ min: 3, max: 20 }),
+	check("name").exists().notEmpty().isLength({ min: 1, max: 50 }),
 
-	check("surname").exists().notEmpty().isLength({ min: 3, max: 20 }),
+	check("surname").exists().notEmpty().isLength({ min: 1, max: 50 }),
 
 	check("phone").exists().notEmpty().isNumeric().isLength({ min: 6, max: 15 }),
 
 	check("email")
 		.exists()
 		.notEmpty()
-		.isLength({ min: 6, max: 30 })
+		.isLength({ min: 3, max: 50 })
 		.isEmail()
 		.custom(isValidUser),
 
 	check("username")
 		.exists()
 		.notEmpty()
-		.isLength({ min: 5, max: 15 })
+		.isLength({ min: 1, max: 50 })
 		.custom(isValidUserName),
 	(req: Request, res: Response, next: NextFunction) => {
 		const errors = validationResult(req);
