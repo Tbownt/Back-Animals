@@ -3,7 +3,7 @@ import {paymentMp} from "../controller/paymentMp";
 
 const donationRouter = Router();
 
-donationRouter.get('/', paymentMp );
+donationRouter.post('/', paymentMp );
 
 
 
