@@ -71,7 +71,6 @@ export const subscription = async(req: Request, res: Response) => {
   try {
     const mp = await mercadopago.preapproval.create(preference);
     //creamos un preapproval (link de pago) con nuestra preferencia
-
     const linkCheckout = mp && mp.response && mp.response.init_point;
     //obtenemos el link de la respuesta
     // console.log(linkCheckout);
