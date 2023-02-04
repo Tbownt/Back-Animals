@@ -26,6 +26,7 @@ mercadopago.configure({
 });
 
 
+
 server.use("/", router);
 
 export default server;

@@ -1,0 +1,253 @@
+[{
+    "size": "pequeño",
+    "species": "perro",
+    "age": "adulto",
+    "img": "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/56XYNEI34VC4DC5YZOIWSODAWY.jpg",
+    "detail": "Es un perro amistoso y alegre, necesita de alguien que le de amor",
+    "area": "Florencio Varela",
+    "sex": "macho",
+    "status": "encontrado"
+},
+
+{
+    "size": "pequeño",
+    "species": "perro",
+    "age": "adulto",
+    "img": "https://media.todojujuy.com/p/ec5803e2ecbb846419e0469c1f6002dc/adjuntos/227/imagenes/003/241/0003241461/perro-callejero-22jpg.jpg",
+    "detail": "Es un perro chico timido y tranquilo",
+    "area": "Quilmes",
+    "sex": "macho",
+    "status": "encontrado"
+},
+
+{
+    "size": "pequeño",
+    "species": "perro",
+    "age": "cachorro",
+    "img": "https://aproa.org.ve/wp-content/uploads/2016/07/perro_callejero800x445.jpg",
+    "detail": "Es una cachorra juguetona y muy activa",
+    "area": "Banfield",
+    "sex": "hembra",
+    "status": "encontrado"
+},
+
+{
+    "size": "mediano",
+    "species": "perro",
+    "age": "adulto",
+    "img": "https://i0.wp.com/www.entremundos.org/revista/wp-content/uploads/2019/07/3211369752_8c8d1a67b3_o.jpg?fit=1050%2C787&ssl=1",
+    "detail": "Es una cachorra juguetona y muy activa, le gusta dormir en el sofa",
+    "area": "Wilde",
+    "sex": "hembra",
+    "status": "encontrado"
+},
+
+{
+    "size": "mediano",
+    "species": "gato",
+    "age": "adulto",
+    "img": "https://cdn0.soyungato.com/es/posts/7/6/0/cuanto_vive_un_gato_callejero_67_2_600.jpg",
+    "detail": "Es un gato tranquilo y cariñoso, necesita que le den mucha atención, es muy sociable",
+    "area": "Avellaneda",
+    "sex": "macho",
+    "status": "encontrado"
+},
+
+{
+    "size": "mediano",
+    "species": "gato",
+    "age": "adulto",
+    "img": "https://cdn0.soyungato.com/es/posts/7/6/0/cuanto_vive_un_gato_callejero_67_2_600.jpg",
+    "detail": "Lo encontramos en la calle 12 de octubre al 1700 arriba de un arbol, estuvo 2 dias ahi hasta que lo bajamos. Tiene un collar celeste y con el nombre Mingo",
+    "area": "Florencio Varela",
+    "sex": "macho",
+    "status": "perdido"
+},
+
+{
+    "size": "mediano",
+    "species": "gato",
+    "age": "adulto",
+    "img": "https://www.hogarmania.com/archivos/202004/chequeo-veterinario-en-gatos-recogidos-de-la-calle-1280x720x80xX.jpg",
+    "detail": "Se perdió cerca de la plaza central, tiene una cicatriz en la pata izquierda. Tiene una mancha en forma de corazón en el lomo",
+    "area": "Florencio Varela",
+    "sex": "macho",
+    "status": "perdido"
+},
+
+{
+    "size": "mediano",
+    "species": "perro",
+    "age": "adulto",
+    "img": "https://cdn.create.vista.com/api/media/small/376106616/stock-photo-flock-stray-dogs-streets-agadir",
+    "detail": "Es un perro muy activo y alegre, le gusta dormir la siesta arriba del sillón, parece haberse perdido hace poco",
+    "area": "Banfield",
+    "sex": "macho",
+    "status": "encontrado"
+},
+
+{
+    "size": "mediano",
+    "species": "perro",
+    "age": "adulto",
+    "img": "https://revista.weepec.com/wp-content/uploads/2018/07/red-medium-size-mixed-breed-homeless-dog-sit-PQYH4CR-1.jpg",
+    "detail": "Es un perro muy guardian y bueno, vive en la misma calle hace meses.",
+    "area": "Florencio Varela",
+    "sex": "macho",
+    "status": "encontrado"
+},
+
+{
+    "size": "mediano",
+    "species": "gato",
+    "age": "adulto",
+    "img": "https://st.depositphotos.com/1117529/1236/i/600/depositphotos_12368725-stock-photo-tabby-kitten-waiting-in-a.jpg",
+    "detail": "Es una gata cachorra de pocos meses, aparecio en mi patio.",
+    "area": "Dock Sud",
+    "sex": "hembra",
+    "status": "encontrado"
+},
+
+{
+    "size": "mediano",
+    "species": "perro",
+    "age": "adulto",
+    "img": "https://images.milenio.com/OY0SM_QDJTpfpR0slBZeCtw0jmo=/345x237/uploads/media/2022/07/27/te-contamos-desde-cuando-se.jpg",
+    "detail": "Es un perro mediano bueno y alegre, le encanta socializar con niñxs",
+    "area": "La plata",
+    "sex": "macho",
+    "status": "encontrado"
+},
+
+{
+    "size": "pequeño",
+    "species": "perro",
+    "age": "cachorro",
+    "img": "https://cdn.com.do/wp-content/uploads/2021/07/bb78013e-perrocall-610022dd5ec17.jpg",
+    "detail": "Es una perrita extrovertida y alegre con mucha energia.",
+    "area": "Robledo",
+    "sex": "hembra",
+    "status": "encontrado"
+},
+
+{
+    "size": "mediano",
+    "species": "gato",
+    "age": "joven",
+    "img": "https://cdn.pixabay.com/photo/2018/04/16/20/13/stray-3325760_960_720.jpg",
+    "detail": "Es un gato macho cariñoso y compañero.",
+    "area": "Colegiales",
+    "sex": "macho",
+    "status": "encontrado"
+},
+
+{
+    "size": "grande",
+    "species": "perro",
+    "age": "adulto",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh6-xXhCpm9cIKXpr9oCd3J1-0v9N4PlAAbw&usqp=CAU",
+    "detail": "Es un perro sociable, se lleva bien con otros perros y es tranquilo.",
+    "area": "La plata",
+    "sex": "macho",
+    "status": "encontrado"
+},
+
+{
+    "size": "mediano",
+    "species": "perro",
+    "age": "adulto",
+    "img": "https://images.milenio.com/OY0SM_QDJTpfpR0slBZeCtw0jmo=/345x237/uploads/media/2022/07/27/te-contamos-desde-cuando-se.jpg",
+    "detail": "Es un perro mediano bueno y alegre, necesito que alguien lo adopte cuanto antes, no puedo tenerlo mucho más tiempo",
+    "area": "La plata",
+    "sex": "macho",
+    "status": "encontrado"
+},
+
+{
+    "size": "pequeño",
+    "species": "gato",
+    "age": "cachorro",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsmZye0YU6ot0qlUsFABMynJTmgSrfwZyqgzBwhQpAyA&s",
+    "detail": "Es un gato re tierno, no le gusta compartir con otros gatos, yo tengo los mios, por favor ayudenme a encontrarle una casa",
+    "area": "Colegiales",
+    "sex": "hembra",
+    "status": "encontrado"
+},
+
+{
+    "size": "mediano",
+    "species": "gato",
+    "age": "joven",
+    "img": "https://imagenes.20minutos.es/files/og_thumbnail/uploads/imagenes/2020/02/08/gato-callejero.jpeg",
+    "detail": "Es una gato muy enérgico para su edad pero es de juguetón, no provoca daños en la casa, suele cazar ratas",
+    "area": "Quilmes",
+    "sex": "macho",
+    "status": "encontrado"
+},
+
+{
+    "size": "pequeño",
+    "species": "gato",
+    "age": "cachorro",
+    "img": "https://www.petdarling.com/wp-content/uploads/2014/05/cuanto-vive-un-gato-callejero.jpg",
+    "detail": "Es un gatito muy tierno, necesita de una familia que lo contenga y le brinde cuidados",
+    "area": "asdasdasdasd",
+    "sex": "hembra",
+    "status": "encontrado"
+},
+
+{
+    "size": "mediano",
+    "species": "perro",
+    "age": "adulto",
+    "img": "https://misanimales.com/wp-content/uploads/2016/07/perro-callejero.jpg",
+    "detail": "Lo encontré cerca de mi trabajo, por la estación de tren, parece que venía de vivir con una familia porque se lo nota alimentado y socializa bien con las personas",
+    "area": "Caballito",
+    "sex": "macho",
+    "status": "perdido"
+},
+
+{
+    "size": "mediano",
+    "species": "perro",
+    "age": "adulto",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXsb_FEvIgrgbux5j7BTvWyopaWx61PBytBGLA1D391kFJi2j0faoyh_w7S7iPjm6A3GQ&usqp=CAU",
+    "detail": "Este perro se encuentra perdido, estamos buscándolo, responde al nombre de Tomy! ",
+    "area": "Caballito",
+    "sex": "hembra",
+    "status": "perdido"
+},
+
+{
+    "size": "pequeño",
+    "species": "perro",
+    "age": "cachorro",
+    "img": "https://media.ambito.com/p/b557090912ecceaab81df557ad810837/adjuntos/239/imagenes/039/832/0039832322/730x0/smart/perrojpg.jpg",
+    "detail": "Se ha perdido mi perrita, estamos buscándola desde el jueves a la noche, se llama Ronda",
+    "area": "La plata",
+    "sex": "hembra",
+    "status": "perdido"
+},
+
+{
+    "size": "grande",
+    "species": "perro",
+    "age": "joven",
+    "img": "https://previews.123rf.com/images/blinow61/blinow611303/blinow61130300019/18285147-el-marr%C3%B3n-grande-perro-callejero-que-duerme-en-el-suelo.jpg",
+    "detail": "Se perdió este perro por la zona del bosque, responde al nombre de Pepe. Necesita tomar su medicación diaria, por favor ayúdenme a encontrarlo",
+    "area": "La plata",
+    "sex": "macho",
+    "status": "perdido"
+},
+
+{
+    "size": "pequeño",
+    "species": "perro",
+    "age": "cachorro",
+    "img": "https://static.nationalgeographic.es/files/styles/image_3200/public/01-stray-dogs-nationalgeographic_1927666.jpg?w=1600&h=900",
+    "detail": "Mi perrita Batu se perdió en la zona de la plaza Martín Fierro, tiene una mancha blanca en el lomo, Por favor comunicate conmigo de inmediato si la viste o la tenés ",
+    "area": "San Cristóbal",
+    "sex": "hembra",
+    "status": "perdido"
+}
+]

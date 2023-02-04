@@ -10,7 +10,7 @@ import {
 const productRouter = Router();
 
 productRouter.get("/", getAllProducts);
-productRouter.post("/", validatorPostProduct, createProduct);
+productRouter.post("/", createProduct);
 productRouter.get("/:id", getProductId);
 productRouter.put("/:id", updateProduct);
 
