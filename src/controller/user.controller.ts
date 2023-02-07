@@ -5,7 +5,6 @@ import { encrypt } from "../utils/bcrypt.handler";
 import { verified } from "../utils/bcrypt.handler";
 import { transporter } from "../config/mailer";
 
-
 export const createUser = async (req: Request, res: Response) => {
 	const { name, surname, email, username, phone, role, password } = req.body;
 	try {
@@ -31,19 +30,18 @@ export const createUser = async (req: Request, res: Response) => {
 
 	//SEND EMAIL DE BIENVENIDA
 	try {
-        await transporter.sendMail({
-               from: '"EQUIPO BUDDY-ONG 👻" <correodepruebaproyectofinal@gmail.com>', // sender address
-               to: email, // list of receivers
-               subject: "¡¡¡Bienvenido a BUDDY-ONG!!!", // Subject line
-               // text: "", // plain text body
-               html: `<b>El equipo Buddy-ONG te quiere dar una gran bienvenida y, sobre todo, agradecer tu tiempo para registrarte en nuestro sitio Web. Muchas gracias. ¡Es un placer conocerte y que estés aqui!
+		await transporter.sendMail({
+			from: '"EQUIPO BUDDY-ONG 👻" <correodepruebaproyectofinal@gmail.com>', // sender address
+			to: email, // list of receivers
+			subject: "¡¡¡Bienvenido a BUDDY-ONG!!!", // Subject line
+			// text: "", // plain text body
+			html: `<b>El equipo Buddy-ONG te quiere dar una gran bienvenida y, sobre todo, agradecer tu tiempo para registrarte en nuestro sitio Web. Muchas gracias. ¡Es un placer conocerte y que estés aqui!
 				Saludos!  
-			   </b>`
-               , // html body
-             });
-       } catch (error) {
-           console.log(error)
-       }
+			   </b>`, // html body
+		});
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 export const getAllUsers = async (req: Request, res: Response) => {
@@ -102,20 +100,29 @@ export const setStatusUserInDB = async (req: Request, res: Response) => {
 
 export const loginCtrl = async (req: Request, res: Response) => {
 	const { email, password } = req.body;
-	const user = await User.find({
-		// select: [password],
-		where: [{ email: email }],
-		relations: ["pet"],
-	});
+	try {
+		const FindUser = await User.find({
+			// select: [password],
+			where: [{ email: email }],
+			relations: ["pet"],
+		});
+		console.log(FindUser);
+		if (!FindUser.length) {
+			res.status(400).send(console.log("usuario no encontrado"));
+		}
+		if (FindUser.length) {
+			const emailDb = FindUser.map((e) => e.email);
+			const passwordDb = FindUser.map((p) => p.password);
 
-	const emailDb = user.map((e) => e.email);
-	const passwordDb = user.map((p) => p.password);
+			for (let i = 0; i < passwordDb.length; i++) {
+				let resultPassword = await verified(password, passwordDb[i]);
 
-	for (let i = 0; i < passwordDb.length; i++) {
-		let resultPassword = await verified(password, passwordDb[i]);
-
-		if (emailDb[0] && resultPassword) return res.send(user);
-		else res.json("usuario incorrecto");
+				if (emailDb[0] && resultPassword) return res.status(200).send(FindUser);
+				else res.status(400).send("contraseña incorrecta");
+			}
+		}
+	} catch {
+		res.status(400).send("usuario incorrecto");
 	}
 };
 
