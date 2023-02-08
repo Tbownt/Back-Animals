@@ -5,8 +5,6 @@ import { subscription } from "../controller/paymentMp";
 const donationRouter = Router();
 
 donationRouter.post('/', paymentMp );
-donationRouter.post("/subscription",subscription )
-
-
+donationRouter.post("/subscription",subscription );
 
 export default donationRouter;
