@@ -1,36 +1,36 @@
 import { Request, Response } from "express";
-const mercadopago = require("mercadopago");
 const url = "https://buddyong.vercel.app/home";
-import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-dotenv.config();
+const mercadopago = require("mercadopago");
 
 
 export const paymentMp =(req: Request, res: Response)=>{
 
-const {unit_price, title} = req.body;
+const {cart} = req.body;
+const objProduct = cart.map((value: any) => (
+  {
+    id: value.id,
+    title: value.name,
+    unit_price: value.price,
+    currency_id: "ARS",
+    quantity: value.amount,
+  }
+))
 
 // Crea un objeto de preferencia
 let preference = {
     //?url que retorna despues de una operación
+    binary_mode: true,
     back_urls:{
         success: url
     },
-    items: [
-      {
-        id:123,
-        title: title,
-        unit_price: unit_price,
-        currency_id: "ARS",
-        quantity: 1,
-      },
-    ],
-    // notification_url: "http://misitio/server/idProducto" 
+    items: objProduct,
+    // notification_url: `https://7c5e-190-18-180-176.sa.ngrok.io/donation/notification/`
   };
   
   mercadopago.preferences
     .create(preference)
     .then(function (response: any) {
-        console.log(`<a href="${response.body.init_point} IR A PAGAR</a>`); //?url que genera mercadopago, el usuario va a hacer click en este link
+        // console.log(`<a href="${response.body.init_point} IR A PAGAR</a>`); //?url que genera mercadopago, el usuario va a hacer click en este link
         res.json(response.body.init_point)
       // En esta instancia deberás asignar el valor dentro de response.body.id por el ID de preferencia solicitado en el siguiente paso
     })
@@ -39,7 +39,6 @@ let preference = {
     });
   
 }
-
 
 export const subscription = async(req: Request, res: Response) => {
   
@@ -85,3 +84,4 @@ export const subscription = async(req: Request, res: Response) => {
 }
 
 
+ 
