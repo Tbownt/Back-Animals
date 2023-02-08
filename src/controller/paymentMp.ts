@@ -5,16 +5,33 @@ const mercadopago = require("mercadopago");
 
 export const paymentMp =(req: Request, res: Response)=>{
 
-const {cart} = req.body;
-const objProduct = cart.map((value: any) => (
-  {
-    id: value.id,
-    title: value.name,
-    unit_price: value.price,
-    currency_id: "ARS",
-    quantity: value.amount,
-  }
-))
+
+// console.log(donation);
+let objProduct;
+if(req.body.cart){
+  const {cart} = req.body;
+  objProduct =cart.map((value: any) => (
+    {
+      id: value.id,
+      title: value.name,
+      unit_price: value.price,
+      currency_id: "ARS",
+      quantity: value.amount,
+    }
+  ))
+}
+if(req.body.donation){
+  const {donation} = req.body;
+
+   objProduct = [{
+    title: "Donación",
+    unit_price : donation.unit_price,
+    currency_id : "ARS",
+    quantity : 1
+  }]
+
+}
+
 
 // Crea un objeto de preferencia
 let preference = {
@@ -24,7 +41,7 @@ let preference = {
         success: url
     },
     items: objProduct,
-    // notification_url: `https://7c5e-190-18-180-176.sa.ngrok.io/donation/notification/`
+//     // notification_url: `https://7c5e-190-18-180-176.sa.ngrok.io/donation/notification/`
   };
   
   mercadopago.preferences
@@ -47,7 +64,7 @@ export const subscription = async(req: Request, res: Response) => {
   const frequency = "months";
 
   const preference = {
-    payer_email: email,
+    payer_email: "test_user_1305654611@testuser.com",
     //email del usuario comprador
     reason: "Colaboración mensual",
     external_reference: "",
